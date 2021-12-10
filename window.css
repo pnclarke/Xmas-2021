@@ -7,12 +7,14 @@ body
     display: flex;
     justify-content: center;
     --visible: 0;
+    position: relative;
 }
 #myCanvas 
 {
     display: flex;
     justify-content: center;
-    width: 80%;
+    width: 80vw;
+    height: 40vw;
     background-color: hsla(0, 0%, 0%, 1);
     overflow: hidden;
 }
