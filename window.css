@@ -11,7 +11,6 @@ body
 #myCanvas 
 {
     display: flex;
-    /* position: relative; */
     justify-content: center;
     width: 80%;
     background-color: hsla(0, 0%, 0%, 1);
@@ -138,7 +137,7 @@ body
     left: 0;
     width: 300%;
     height: 300%;
-    background-image: url(/snow.jpg);
+    background-image: url(snow.jpg);
     filter: blur(1.5px);
     z-index: 1;
     animation: snowfall1 24s linear infinite;
@@ -151,7 +150,7 @@ body
     left: 5%;
     width: 300%;
     height: 300%;
-    background-image: url(/snow.jpg);
+    background-image: url(snow.jpg);
     filter: blur(1.5px);
     z-index: 1;
     animation: snowfall2 25s linear infinite;
@@ -196,7 +195,7 @@ body
     filter: blur(1px);
     mix-blend-mode: screen;
     z-index: 5;
-    background-image: url(/moon.svg);
+    background-image: url(moon.svg);
     background-repeat: no-repeat;
 }
 @keyframes wait
@@ -214,7 +213,7 @@ body
     position: absolute;
     top: -5%;
     left: 10%;
-    background-image: url(/Mountains-Silhouette-By-Linnaea-Mallette.svg);
+    background-image: url(Mountains-Silhouette-By-Linnaea-Mallette.svg);
     background-repeat: no-repeat;
     background-size: cover;
     animation: wait 20s linear, appear 7s linear 20s;
@@ -243,7 +242,6 @@ body
     left: -5%;
     background-image: url(/xmas-images/santa.png);
     background-size: cover;
-    /* overflow: hidden; */
     opacity: 0;
     animation: wait 36s linear, sleigh-ride 10s linear 36s;
     width: 17%;
@@ -260,9 +258,9 @@ body
     position: absolute;
     bottom: 19%;
     left: 45%;
-    background-image: url(/snowman.png);
+    background-image: url(snowman.png);
     background-size: cover;
-    /* animation: wait 28s linear, appear 3s linear 28s; */
+    animation: wait 28s linear, appear 3s linear 28s;
     width: 10%;
     height: 30%;
     z-index: 4;
@@ -322,9 +320,9 @@ body
     position: absolute;
     bottom: 28%;
     left: 29%;
-    background-image: url(/tree.png);
+    background-image: url(tree.png);
     background-size: cover;
-    /* animation: wait 25s linear, appear 7s linear 25s; */
+    animation: wait 25s linear, appear 7s linear 25s;
     width: 12%;
     height: 28%;
     z-index: 7;   
@@ -340,7 +338,7 @@ body
     left: 33%;
     background-image: url(/xmas-images/christmas-train1png.png);
     background-size: cover;
-    /* animation: wait 46s linear, train-ride 10s ease-in-out 46s; */
+    animation: wait 46s linear, train-ride 10s ease-in-out 46s;
     width: 45%;
     height: 28%;
     z-index: 6;
@@ -380,7 +378,7 @@ body
     background-size: cover;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-image: url(/gift-wrapping-christmas-gift-ribbon-clip-art-png-favpng-qjNGis786vPdC9h2Py4wuxhMg_adobespark.png);
+    background-image: url(gift-wrapping-christmas-gift-ribbon-clip-art-png-favpng-qjNGis786vPdC9h2Py4wuxhMg_adobespark.png);
 }
 .days
 {
