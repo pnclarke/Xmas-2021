@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Window</title>
+    <link rel="stylesheet" type="text/css" href="/window.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="myCanvas">    
+        <div class="window">
+            <div class="sash-v"></div>
+            <div class="sash-h"></div>
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="sleigh"></div>
+        </div>
+        <div class="holder">
+            <div class="candle">
+              <div class="blinking-glow"></div>
+              <div class="thread"></div>
+              <div class="glow"></div>
+              <div class="flame"></div>
+            </div>
+          </div>
+        <div class="moon"></div>
+        <div class="mountains"></div>
+        <div class="ground"></div>
+        
+        <div class="snowman"><div class="wink"></div></div>
+        <div class="tree"></div>
+        <div class="train"></div>
+        <div class="countdown">
+            <div class="days"><div class="d"></div><div class="d-text">days</div></div>
+            <div class="hours"><div class="h"></div><div class="h-text">hours</div></div>
+            <div class="mins"><div class="m"></div><div class="m-text">mins</div></div>
+            <div class="secs"><div class="s"></div><div class="s-text">secs</div></div>
+        </div>
+        <div class="merry-christmas">Merry Christmas</div>
+        <div class="from-pete">love from Pete & Emma</div>
+        <div class="press-play">press play to hear music...</div>
+        <audio controls autoplay id="play">
+            <source src="/christmas-atmosphere-11418.mp3" type="audio/mpeg">
+          </audio>
+    </div>
+    
+    
+        
+    <script>
+
+        // document.getElementsByID('play').click();
+    
+        // Setup End Date for Countdown (getTime == Time in Milleseconds)
+        let launchDate = new Date("Dec 25, 2021 00:00:01").getTime();
+
+        // Setup Timer to tick every 1 second
+        let timer = setInterval(tick, 1000);
+
+        function tick () {
+        // Get current time
+        let now = new Date().getTime();
+        // Get the difference in time to get time left until reaches 0
+        let t = launchDate - now;
+
+        // Check if time is above 0
+        if (t > 0) {
+            // Setup Days, hours, seconds and minutes
+            // Algorithm to calculate days...
+            let days = Math.floor(t / (1000 * 60 * 60 * 24));
+            // prefix any number below 10 with a "0" E.g. 1 = 01
+            if (days < 10) { days = "0" + days; }
+            
+            // Algorithm to calculate hours
+            let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            if (hours < 10) { hours = "0" + hours; }
+
+            // Algorithm to calculate minutes
+            let mins = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            if (mins < 10) { mins = "0" + mins; }
+
+            // Algorithm to calc seconds
+            let secs = Math.floor((t % (1000 * 60)) / 1000);
+            if (secs < 10) { secs = "0" + secs; }
+
+            // Create Time String
+            let time = `${days} : ${hours} : ${mins} : ${secs} `;
+            d = `${days}`;
+            h = `${hours}`;
+            m = `${mins}`;
+            s = `${secs}`;
+
+            // Set time on document
+            document.querySelector('.d').innerText = d;
+            document.querySelector('.h').innerText = h;
+            document.querySelector('.m').innerText = m;
+            document.querySelector('.s').innerText = s;
+        }
+        }
+    </script>
+</body>
+</html>

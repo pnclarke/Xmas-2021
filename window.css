@@ -1,0 +1,638 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    --visible: 0;
+}
+#myCanvas 
+{
+    display: flex;
+    /* position: relative; */
+    justify-content: center;
+    width: 80%;
+    background-color: hsla(0, 0%, 0%, 1);
+    overflow: hidden;
+}
+.window 
+{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    background: linear-gradient(0deg, hsl(240, 99%, 36%), hsl(240, 100%, 15%));
+    overflow: hidden;
+    z-index: 2;
+    animation: zoom 24s ease-in-out ;
+}
+@keyframes zoom 
+{
+    0% 
+    {
+        width: 40%;
+        height: 40%;
+    }
+    50%
+    {
+        width: 40%;
+        height: 40%;
+    }
+    100% 
+    {
+        width: 100%;
+        height: 100%;
+    }    
+}
+.sash-v 
+{
+    position: relative;
+    margin: auto;
+    width: 0%;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+    animation: blur-v 12s ease-in-out 12s, wait-v 12s linear;
+}
+.sash-h 
+{
+    position: relative;
+    top: -50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 0%;
+    background-color: hsla(0, 0%, 0%, 1);
+    z-index: 2;
+    animation: blur-h 12s ease-in-out 12s, wait-h 12s linear;
+}
+@keyframes wait-v 
+{
+    0%  
+    {
+        width: 5%;
+        height: 100%;
+        opacity: 1;
+    }
+    100% 
+    {
+        width: 5%;
+        height: 100%;
+        opacity: 1;
+    }  
+}
+@keyframes blur-v
+{
+    0% 
+    {
+        width: 5%;
+        height: 100%;
+        opacity: 1;
+    }
+    100% 
+    {
+        width: 4%;
+        height: 100%;
+        filter: blur(15px);
+        background-color: hsla(0, 0%, 0%, 0);
+    }
+}
+@keyframes wait-h 
+{
+    0%
+    {
+        width: 100%;
+        height: 5%;
+        opacity: 1;
+    }
+    100% 
+    {
+        width: 100%;
+        height: 5%;
+        opacity: 1;
+    }
+}
+@keyframes blur-h
+{
+    0% 
+    {
+        width: 100%;
+        height: 5%;
+        opacity: 1;
+    }
+    100% 
+    {
+        width: 100%;
+        height: 4%;
+        filter: blur(15px);
+        background-color: hsla(0, 0%, 0%, 0);
+    }
+}
+
+.snow1
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background-image: url(/snow.jpg);
+    filter: blur(1.5px);
+    z-index: 1;
+    animation: snowfall1 24s linear infinite;
+    mix-blend-mode: screen;
+}
+.snow2
+{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    width: 300%;
+    height: 300%;
+    background-image: url(/snow.jpg);
+    filter: blur(1.5px);
+    z-index: 1;
+    animation: snowfall2 25s linear infinite;
+    mix-blend-mode: screen;
+}
+@keyframes snowfall1
+{
+    0% 
+    {
+        background-position-x: 10%;
+        background-position-y: 0%;
+    }
+    100% 
+    {
+        background-position-x: 30%;
+        background-position-y: 100%;
+    }
+}
+@keyframes snowfall2
+{
+    0% 
+    {
+        transform: scale(1.3);
+        background-position-x: 0%;
+        background-position-y: 0%;
+    }
+    100% 
+    {
+        transform: scale(1.3);
+        background-position-x: 20%;
+        background-position-y: 100%;
+    }
+}
+.moon
+{
+    position: absolute;
+    top: 10%;
+    left: 68%;
+    animation: wait 24s linear, moon 5s linear 24s;
+    width: 16%;
+    height: 16%;
+    filter: blur(1px);
+    mix-blend-mode: screen;
+    z-index: 5;
+    background-image: url(/moon.svg);
+    background-repeat: no-repeat;
+}
+@keyframes wait
+{
+    0%   { width: 0%;  height: 0%; opacity: 0; }
+    100% { width: 0%;  height: 0%; opacity: 0; }
+}
+@keyframes moon
+{
+    0%   { width: 0%;  height: 0%;  }
+    100% { width: 16%; height: 16%; }
+}
+.mountains
+{
+    position: absolute;
+    top: -5%;
+    left: 10%;
+    background-image: url(/Mountains-Silhouette-By-Linnaea-Mallette.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: wait 20s linear, appear 7s linear 20s;
+    width: 80%;
+    height: 100%;
+    transform: scaleY(0.5);
+    mix-blend-mode: screen;
+    z-index: 3;
+}
+.ground
+{
+    position: absolute;
+    bottom: -2%;
+    left: 8%;
+    width: 85%;
+    height: 31%;
+    background-color: white;
+    filter: blur(5px);
+    z-index: 4;
+    animation: wait 24s linear, appear 7s linear 24s;
+}
+.sleigh
+{
+    position: absolute;
+    top: 28%;
+    left: -5%;
+    background-image: url(/xmas-images/santa.png);
+    background-size: cover;
+    /* overflow: hidden; */
+    opacity: 0;
+    animation: wait 36s linear, sleigh-ride 10s linear 36s;
+    width: 17%;
+    height: 16%;
+    z-index: 6;
+}
+@keyframes sleigh-ride
+{
+    0%   { left: -5%;  top: 28%; transform: scale(1); opacity: 0.9; }
+    100%   { left: 90%;  top: 5%; transform: scale(0.2); opacity: 0.7; }
+}
+.snowman
+{
+    position: absolute;
+    bottom: 19%;
+    left: 45%;
+    background-image: url(/snowman.png);
+    background-size: cover;
+    /* animation: wait 28s linear, appear 3s linear 28s; */
+    width: 10%;
+    height: 30%;
+    z-index: 4;
+}
+@media (max-width: 1300px)
+{
+    .snowman {width: 10%; height: 22%; }
+}
+@keyframes appear
+{
+    0% 
+    {
+        opacity: 0;
+    }
+    /* 70%
+    {
+        opacity: 0;
+    } */
+    100%
+    {
+        opacity: 1;
+    }
+}
+.wink
+{
+    position: absolute;
+    background-color: white;
+    border: 1px black;
+    width: 10%;
+    height: 10%;
+    left: 43%;
+    top: 30%;
+    opacity: 0;
+    animation: wink 5s linear 35s infinite;
+}
+@keyframes wink
+{
+    0% 
+    {
+        opacity: 0;
+    }
+    80%
+    {
+        opacity: 0;
+    }
+    90%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+.tree
+{
+    position: absolute;
+    bottom: 28%;
+    left: 29%;
+    background-image: url(/tree.png);
+    background-size: cover;
+    /* animation: wait 25s linear, appear 7s linear 25s; */
+    width: 12%;
+    height: 28%;
+    z-index: 7;   
+}
+@media (max-width: 1080px)
+{
+    .tree {width: 12%; height: 17%; }
+}
+.train
+{
+    position: absolute;
+    bottom: 0%;
+    left: 33%;
+    background-image: url(/xmas-images/christmas-train1png.png);
+    background-size: cover;
+    /* animation: wait 46s linear, train-ride 10s ease-in-out 46s; */
+    width: 45%;
+    height: 28%;
+    z-index: 6;
+}
+@media (max-width: 1157px)
+{
+    .train {width: 30%; height: 17%;}
+}
+@keyframes train-ride 
+{
+    0% { left: -50%; }
+    100% {left: 33%; }   
+}
+.countdown
+{
+    position: absolute;
+    bottom: -29%;
+    left: 60%;
+    transform: translateX(-50%);
+    animation: wait 56s linear, appear 5s linear 56s;
+    width: 50%;
+    height: 50%;
+    z-index: 7;  
+}
+.days, .mins, .hours, .secs
+{
+    position: absolute;
+    display: inline;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    text-align: center;
+    align-content: center;
+    width: 10%;
+    height: 22%;
+    filter: opacity(80%);
+    background-position: center;
+    background-size: cover;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(/gift-wrapping-christmas-gift-ribbon-clip-art-png-favpng-qjNGis786vPdC9h2Py4wuxhMg_adobespark.png);
+}
+.days
+{
+    transform: translateX(10%);
+}
+.hours
+{
+    transform: translateX(130%);
+}
+.mins
+{
+    transform: translateX(250%);
+}
+.secs
+{
+    transform: translateX(370%);
+}
+.d, .h, .m, .s
+{
+    position: absolute;
+    left: 48%;
+    top: 52%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 150%;
+}
+.d-text, .h-text, .m-text, .s-text
+{
+    position: absolute;
+    left: 48%;
+    top: 78%;
+    transform: translateX(-50%);
+    color:white;
+    font-size: 100%;
+}
+.merry-christmas, .from-pete
+{
+    font-family: 'Festive', cursive;
+    color: red;
+    position: absolute;
+    z-index: 5;
+    font-size: 4em;
+    top: 4%;
+    left: 15%;
+    animation: appear 1s linear, wait 20s linear 24s, appear 5s linear 30s;
+    animation: text-glow 0.3s linear 35s infinite;
+    font-weight: bold;
+}
+.from-pete
+{
+    top: 20%;
+    left: 25%;
+    font-size: 2em;
+}
+@keyframes text-glow
+{
+    0%   { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.002);}
+    100%   { opacity: 0.8; transform: scale(1); }
+}
+
+
+.holder {
+    margin: 12rem auto 0;
+    width: 0;
+    height: 0;
+    position: relative;
+    z-index: -1;
+    animation: disappear 20s linear;
+  }
+  @keyframes disappear
+  {
+      /* 0%   { width: 150px; height: 400px; z-index: 6;}
+      65%   { width: 150px; height: 400px; opacity: 0.9;}
+      85%   { width: 100px; height: 500px; opacity: 0.5;}
+      100%   { width: 0; height: 700px; opacity: 0; z-index: -1} */
+      0%   { width: 10%; height: 60%; z-index: 6;}
+      65%   { width: 10%; height: 60%; opacity: 0.9;}
+      85%   { width: 5%; height: 80%; opacity: 0.5;}
+      100%   { width: 0; height: 90%; opacity: 0; z-index: -1}
+  } 
+  
+  .holder *, .holder *:before, .holder *:after {
+    position: absolute;
+    content: "";
+  }
+  
+  .candle {
+    bottom: 0;
+    width: 150px;
+    height: 300px;
+    border-radius: 150px / 40px;
+    box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
+    background: #190f02;
+    background: -moz-linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+    background: -webkit-linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+    background: -o-linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+    background: -ms-linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+    background: linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
+  }
+  
+  .candle:before {
+    width: 100%;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #d47401;
+    background: #b86409;
+    background: -moz-radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+    background: -webkit-radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+    background: -o-radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+    background: -ms-radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+    background: radial-gradient(#ffef80, #b86409 60%);
+    background: radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+  }
+  
+  .candle:after {
+    width: 34px;
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    top: 14px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+    background: -moz-radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+    background: -webkit-radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+    background: -o-radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+    background: -ms-radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+    background: radial-gradient(rgba(0, 0, 0, 0.6), transparent 45%);
+  }
+  
+  .thread {  
+    width: 6px;
+    height: 36px;
+    top: -17px;
+    left: 50%;
+    z-index: 1;
+    border-radius: 40% 40% 0 0;
+    transform: translateX(-50%);
+    background: #121212;
+    background: -moz-linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+    background: -webkit-linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+    background: -o-linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+    background: -ms-linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+    background: linear-gradient(#d6994a, #4b232c, #121212, black, #e8bb31 90%);
+  }
+  
+  .flame {
+    width: 24px;
+    height: 120px;
+    left: 50%;
+    transform-origin: 50% 100%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    border-radius: 50% 50% 20% 20%;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(white 80%, transparent);
+    background: -webkit-linear-gradient(white 80%, transparent);
+    background: -o-linear-gradient(white 80%, transparent);
+    background: -ms-linear-gradient(white 80%, transparent);
+    background: linear-gradient(white 80%, transparent);
+    animation: moveFlame 6s linear infinite, enlargeFlame 5s linear infinite;
+  }
+  
+  .flame:before {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 0 0 15px 0 rgba(247, 93, 0, .4), 0 -6px 4px 0 rgba(247, 128, 0, .7);
+  }
+  
+  @keyframes moveFlame {
+    0%, 100% {
+      transform: translateX(-50%) rotate(-2deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(2deg);
+    }
+  }
+  
+  @keyframes enlargeFlame {
+    0%, 100% {
+      height: 120px;
+    }
+    50% {
+      height: 140px;
+    }
+  }
+  
+  .glow {
+    width: 26px;
+    height: 60px;
+    border-radius: 50% 50% 35% 35%;
+    left: 50%;
+    top: -48px;
+    transform: translateX(-50%);
+    background: rgba(0, 133, 255, .7);
+    box-shadow: 0 -40px 30px 0 #dc8a0c, 0 40px 50px 0 #dc8a0c, inset 3px 0 2px 0 rgba(0, 133, 255, .6), inset -3px 0 2px 0 rgba(0, 133, 255, .6);
+  }
+  
+  .glow:before {
+    width: 70%;
+    height: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+  }
+  
+  .blinking-glow {
+    width: 100px;
+    height: 180px;
+    left: 50%;
+    top: -55%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #ff6000;
+    -webkit-filter: blur(50px);
+    -moz-filter: blur(60px);
+    -o-filter: blur(60px);
+    -ms-filter: blur(60px);
+    filter: blur(60px);
+    animation: blinkIt .1s infinite;
+  }
+  
+  @keyframes blinkIt {
+    50% { opacity: .8;}
+  }
+  .press-play
+  {
+    position: absolute;  
+    bottom: 7%;
+    left: 15%;
+    width: auto;
+    height: auto;
+    color: white;
+    opacity: 0;
+    animation: audio 10s linear;
+  }
+  audio 
+  {
+    position: absolute;  
+    bottom: 1%;
+    left: 15%;
+    width: 250px;
+    height: 5%;
+    opacity: 0;
+    animation: audio 10s linear;
+  }
+  @keyframes audio
+  {
+      0% { opacity: 1; }
+      99% { opacity: 1; }
+      100% { opacity: 0; }
+  }
