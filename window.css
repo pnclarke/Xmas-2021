@@ -242,7 +242,7 @@ body
     position: absolute;
     top: 28%;
     left: -5%;
-    background-image: url(/xmas-images/santa.png);
+    background-image: url(santa.png);
     background-size: cover;
     opacity: 0;
     animation: wait 36s linear, sleigh-ride 10s linear 36s;
@@ -338,7 +338,7 @@ body
     position: absolute;
     bottom: 0%;
     left: 33%;
-    background-image: url(/xmas-images/christmas-train1png.png);
+    background-image: url(christmas-train1png.png);
     background-size: cover;
     animation: wait 46s linear, train-ride 10s ease-in-out 46s;
     width: 45%;
