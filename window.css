@@ -13,10 +13,13 @@ body
 {
     display: flex;
     justify-content: center;
-    width: 80vw;
-    height: 40vw;
+    max-width: 100vw;
+    width: 150vh;
+    max-height: 60vw;
+    height: 100vh;
     background-color: hsla(0, 0%, 0%, 1);
     overflow: hidden;
+    position: relative;
 }
 .window 
 {
@@ -190,7 +193,7 @@ body
 {
     position: absolute;
     top: 10%;
-    left: 68%;
+    left: 73%;
     animation: wait 24s linear, moon 5s linear 24s;
     width: 16%;
     height: 16%;
@@ -214,12 +217,12 @@ body
 {
     position: absolute;
     top: -5%;
-    left: 10%;
+    left: 0%;
     background-image: url(Mountains-Silhouette-By-Linnaea-Mallette.svg);
     background-repeat: no-repeat;
     background-size: cover;
     animation: wait 20s linear, appear 7s linear 20s;
-    width: 80%;
+    width: 100%;
     height: 100%;
     transform: scaleY(0.5);
     mix-blend-mode: screen;
@@ -229,8 +232,8 @@ body
 {
     position: absolute;
     bottom: -2%;
-    left: 8%;
-    width: 85%;
+    left: -5%;
+    width: 110%;
     height: 31%;
     background-color: white;
     filter: blur(5px);
@@ -241,19 +244,19 @@ body
 {
     position: absolute;
     top: 28%;
-    left: -5%;
+    left: -25%;
     background-image: url(santa.png);
     background-size: cover;
-    opacity: 0;
+    opacity: 1;
     animation: wait 36s linear, sleigh-ride 10s linear 36s;
-    width: 17%;
+    width: 22%;
     height: 16%;
     z-index: 6;
 }
 @keyframes sleigh-ride
 {
-    0%   { left: -5%;  top: 28%; transform: scale(1); opacity: 0.9; }
-    100%   { left: 90%;  top: 5%; transform: scale(0.2); opacity: 0.7; }
+    0%   { left: -5%;  top: 28%; transform: scale(1); opacity: 1; }
+    100%   { left: 90%;  top: 5%; transform: scale(0.2); opacity: 0.9; }
 }
 .snowman
 {
@@ -263,7 +266,7 @@ body
     background-image: url(snowman.png);
     background-size: cover;
     animation: wait 28s linear, appear 3s linear 28s;
-    width: 10%;
+    width: 15%;
     height: 30%;
     z-index: 4;
 }
@@ -321,17 +324,13 @@ body
 {
     position: absolute;
     bottom: 28%;
-    left: 29%;
+    left: 15%;
     background-image: url(tree.png);
     background-size: cover;
     animation: wait 25s linear, appear 7s linear 25s;
-    width: 12%;
+    width: 17%;
     height: 28%;
     z-index: 7;   
-}
-@media (max-width: 1080px)
-{
-    .tree {width: 12%; height: 17%; }
 }
 .train
 {
@@ -341,13 +340,9 @@ body
     background-image: url(christmas-train1png.png);
     background-size: cover;
     animation: wait 46s linear, train-ride 10s ease-in-out 46s;
-    width: 45%;
-    height: 28%;
+    width: 50%;
+    height: 21%;
     z-index: 6;
-}
-@media (max-width: 1157px)
-{
-    .train {width: 30%; height: 17%;}
 }
 @keyframes train-ride 
 {
@@ -357,7 +352,7 @@ body
 .countdown
 {
     position: absolute;
-    bottom: -29%;
+    bottom: -33%;
     left: 60%;
     transform: translateX(-50%);
     animation: wait 56s linear, appear 5s linear 56s;
@@ -402,19 +397,25 @@ body
 {
     position: absolute;
     left: 48%;
-    top: 52%;
+    top: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 150%;
+    font-size: 15px;
+}
+@media (max-width: 1000px) { .d, .h, .m, .s {font-size: 10px; } }
+@media (max-width: 650px) { .d, .h, .m, .s {font-size: 8px; }
 }
 .d-text, .h-text, .m-text, .s-text
 {
     position: absolute;
     left: 48%;
-    top: 78%;
+    top: 68%;
     transform: translateX(-50%);
     color:white;
-    font-size: 100%;
+    font-size: 10px;
+}
+@media (max-width: 1000px) { .d-text, .h-text, .m-text, .s-text {font-size: 7px; } }
+@media (max-width: 650px) { .d-text, .h-text, .m-text, .s-text {font-size: 5px; } 
 }
 .merry-christmas, .from-pete
 {
@@ -422,18 +423,29 @@ body
     color: red;
     position: absolute;
     z-index: 5;
-    font-size: 4em;
-    top: 4%;
-    left: 15%;
+    font-size: 50px;
+    top: 2%;
+    left: 2%;
     animation: appear 1s linear, wait 20s linear 24s, appear 5s linear 30s;
     animation: text-glow 0.3s linear 35s infinite;
     font-weight: bold;
 }
+@media (max-width: 1080px) { .merry-christmas {top: 2%; font-size: 50px; } }
+@media (max-width: 950px) { .merry-christmas {top: 2%; font-size: 46px; } } 
+@media (max-width: 800px) { .merry-christmas {top: 2%; font-size: 40px; } } 
+@media (max-width: 690px) { .merry-christmas {top: 2%; font-size: 32px; } 
+}
 .from-pete
 {
-    top: 20%;
-    left: 25%;
-    font-size: 2em;
+    position: absolute;
+    top: 11%;
+    left: 9%;
+    font-size: 30px;
+}
+@media (max-width: 1080px) { .from-pete {top: 12%; font-size: 30px; } }
+@media (max-width: 950px) { .from-pete {top: 14%; font-size: 25px; } }
+@media (max-width: 800px) { .from-pete {top: 14%; font-size: 22px; } } 
+@media (max-width: 690px) { .from-pete {top: 14%; font-size: 20px; } 
 }
 @keyframes text-glow
 {
@@ -453,14 +465,10 @@ body
   }
   @keyframes disappear
   {
-      /* 0%   { width: 150px; height: 400px; z-index: 6;}
-      65%   { width: 150px; height: 400px; opacity: 0.9;}
-      85%   { width: 100px; height: 500px; opacity: 0.5;}
-      100%   { width: 0; height: 700px; opacity: 0; z-index: -1} */
       0%   { width: 10%; height: 60%; z-index: 6;}
       65%   { width: 10%; height: 60%; opacity: 0.9;}
       85%   { width: 5%; height: 80%; opacity: 0.5;}
-      100%   { width: 0; height: 90%; opacity: 0; z-index: -1}
+      100%   { width: 0; height: 90%; opacity: 0; z-index: 6}
   } 
   
   .holder *, .holder *:before, .holder *:after {
@@ -469,8 +477,8 @@ body
   }
   
   .candle {
-    bottom: 0;
-    width: 150px;
+    bottom: -20%;
+    width: 100px;
     height: 300px;
     border-radius: 150px / 40px;
     box-shadow: inset 20px -30px 50px 0 rgba(0, 0, 0, 0.4), inset -20px 0 50px 0 rgba(0, 0, 0, 0.4);
@@ -481,10 +489,12 @@ body
     background: -ms-linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
     background: linear-gradient(#e48825, #e78e0e, #833c03, #4c1a03 50%, #1c0900);
   }
+  @media (max-width: 600px) { .candle {bottom: -40%; width: 60px;}
+  }
   
   .candle:before {
-    width: 100%;
-    height: 40px;
+    width: 95%;
+    height: 28px;
     border-radius: 50%;
     border: 2px solid #d47401;
     background: #b86409;
@@ -494,6 +504,8 @@ body
     background: -ms-radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
     background: radial-gradient(#ffef80, #b86409 60%);
     background: radial-gradient(#eaa121, #8e4901 45%, #b86409 80%);
+  }
+  @media (max-width: 600px) { .candle:before {height: 15px; }
   }
   
   .candle:after {
@@ -543,6 +555,8 @@ body
     background: linear-gradient(white 80%, transparent);
     animation: moveFlame 6s linear infinite, enlargeFlame 5s linear infinite;
   }
+  @media (max-width: 600px) { .flame {width: 24px; }
+}
   
   .flame:before {
     width: 100%;
@@ -613,7 +627,7 @@ body
   {
     position: absolute;  
     bottom: 7%;
-    left: 15%;
+    left: 5%;
     width: auto;
     height: auto;
     color: white;
@@ -624,7 +638,7 @@ body
   {
     position: absolute;  
     bottom: 1%;
-    left: 15%;
+    left: 5%;
     width: 250px;
     height: 5%;
     opacity: 0;
